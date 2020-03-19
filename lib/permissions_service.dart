@@ -16,13 +16,14 @@ class _AskForPermissionState extends State<AskForPermission> {
 
   void getPermission() async {
     permissions = await PermissionHandler().requestPermissions([
-      PermissionGroup.location,
-      PermissionGroup.camera,
-      PermissionGroup.locationAlways,
-      PermissionGroup.phone,
-      PermissionGroup.sensors,
-      PermissionGroup.storage,
-      PermissionGroup.microphone,
+      PermissionGroup.contacts
+      // PermissionGroup.location,
+      // PermissionGroup.camera,
+      // PermissionGroup.locationAlways,
+      // PermissionGroup.phone,
+      // PermissionGroup.sensors,
+      // PermissionGroup.storage,
+      // PermissionGroup.microphone,
     ]);
   }
 
@@ -30,15 +31,11 @@ class _AskForPermissionState extends State<AskForPermission> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ask for permisions'),
-        backgroundColor: Colors.red,
+        title: Text('NEXUS'),
       ),
       body: Center(
-          child: Column(
-        children: <Widget>[
-          Text("All Permission Granted"),
-        ],
-      )),
+        child: Text('Hello World'),
+      ),
     );
   }
 }
