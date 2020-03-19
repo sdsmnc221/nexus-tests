@@ -27,6 +27,7 @@ dependencies:
   # Permissions handler
   # https://pub.dev/packages/permission_handler
   permission_handler: "^4.4.0+hotfix.2"
+  contacts_service: ^0.3.10
 
 dev_dependencies:
   flutter_test:

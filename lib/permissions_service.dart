@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:contacts_service/contacts_service.dart';
 
 class AskForPermission extends StatefulWidget {
   @override
@@ -8,13 +9,17 @@ class AskForPermission extends StatefulWidget {
 
 class _AskForPermissionState extends State<AskForPermission> {
   Map<PermissionGroup, PermissionStatus> permissions;
+  Iterable<Contact> contacts;
   @override
   void initState() {
     super.initState();
-    getPermission();
+    getPermissions();
+    getContacts();
+    print('contacts');
+    print(contacts);
   }
 
-  void getPermission() async {
+  void getPermissions() async {
     permissions = await PermissionHandler().requestPermissions([
       PermissionGroup.contacts
       // PermissionGroup.location,
@@ -25,6 +30,10 @@ class _AskForPermissionState extends State<AskForPermission> {
       // PermissionGroup.storage,
       // PermissionGroup.microphone,
     ]);
+  }
+
+  void getContacts() async {
+    contacts = await ContactsService.getContacts(withThumbnails: false);
   }
 
   @override
